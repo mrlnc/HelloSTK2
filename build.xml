@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="HelloSTK" default="dist" basedir=".">
+  <description>Builds the project.</description>
+  <target name="dist" description="generate the distribution">
+    <tstamp/>
+    <get src="https://github.com/martinpaljak/ant-javacard/releases/latest/download/ant-javacard.jar" dest="." skipexisting="true"/>
+    <!-- Create the distribution directory -->
+    <taskdef name="javacard" classname="pro.javacard.ant.JavaCard" classpath="ant-javacard.jar"/>
+    <javacard>
+      <cap targetsdk="oracle_javacard_sdks/jc221_kit" jckit="oracle_javacard_sdks/jc305u3_kit" output="bin/HelloSTK2.cap" sources="src" classes="bin" version="1.0">
+        <applet class="com.github.mrlnc.HelloSTK2.HelloSTK2" aid="d0:70:02:CA:44:90:01:01"/>
+        <import exps="exp" jar="lib/sim.jar"/>
+      </cap>
+    </javacard>
+  </target>
+  <target name="clean" description="clean up">
+    <!-- Delete the built applet -->
+    <delete dir="HelloSTK2.cap"/>
+  </target>
+</project>
