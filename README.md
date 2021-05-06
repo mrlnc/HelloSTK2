@@ -60,6 +60,8 @@ BUILD SUCCESSFUL
 Total time: 1 second
 ```
 
+I've added my resulting binary, just keep in mind that you'll need a compatible SIM: ![HelloSTK2.cap](./HelloSTK2.cap)
+
 # Install
 
 Some guides tell you to use [GlobalPlatformPro](https://github.com/martinpaljak/GlobalPlatformPro#get-it-now) or `sim-tools` by shadysim.
@@ -111,7 +113,7 @@ Maybe, `aid` needs to match the AIDs during installation 🤷🏼‍♂️
 <applet class="com.github.mrlnc.HelloSTK2.HelloSTK2" aid="d0:70:02:CA:44:90:01:01">
 ```
 
-# Why
+# Old Buildchain: Issues
 
 Some keywords for people googling for hours like crazy without success, just like me 💫
 
