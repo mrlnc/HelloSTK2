@@ -100,6 +100,51 @@ python2 ./sim-tools/shadysim/shadysim_isim.py --pcsc \
       --max-menu-entries 02
 ```
 
+## Common Errors
+
+- wrong KIC, KID (note to myself: double-check)
+- applets cannot be updated. you need to delete, then re-install. common error code in this case: `6985`
+- `shadysim_isim` requires `pyscard==1.9.9`
+
+# Uninstall
+
+Use `shadysim_isim.py` with the flag `--list-applets`:
+```
+$ python2 shadysim/shadysim_isim.py --pcsc --kic xxx --kid xxx --list-applets
+AID: a0000000620001, State: 01, Privs: 00
+AID: 4a6176656c696e2e6a637265, State: 01, Privs: 00
+AID: a0000000620101, State: 01, Privs: 00
+AID: a0000000620102, State: 01, Privs: 00
+AID: a0000000620201, State: 01, Privs: 00
+AID: a000000062020801, State: 01, Privs: 00
+AID: a00000006202080101, State: 01, Privs: 00
+AID: a0000000620002, State: 01, Privs: 00
+AID: a0000000620003, State: 01, Privs: 00
+AID: a000000062010101, State: 01, Privs: 00
+AID: a00000015100, State: 01, Privs: 00
+AID: a0000000090005ffffffff8911000000, State: 01, Privs: 00
+AID: a0000000090005ffffffff8912000000, State: 01, Privs: 00
+AID: a0000000090005ffffffff8913000000, State: 01, Privs: 00
+AID: a0000000090005ffffffff8911010000, State: 01, Privs: 00
+AID: a0000000871005ffffffff8913100000, State: 01, Privs: 00
+AID: a0000000871005ffffffff8913200000, State: 01, Privs: 00
+AID: a0000000090003ffffffff8910710001, State: 01, Privs: 00
+AID: a0000000090003ffffffff8910710002, State: 01, Privs: 00
+AID: a0000000090005ffffffff8915000000, State: 01, Privs: 00
+AID: a00000015141434c, State: 01, Privs: 00
+	Instance AID: a00000015141434c00
+AID: d001935711, State: 01, Privs: 00
+	Instance AID: d001935711fa7b01
+AID: d07002ca44, State: 01, Privs: 00
+	Instance AID: d07002ca44900101
+```
+
+Note the AID `d07002ca44` for the Instance AID: `d07002ca44900101` that we just installed. We can use the AID to uninstall the applet:
+
+```
+$ python2 shadysim/shadysim_isim.py --pcsc --kic xxx --kid xxx -d d07002ca44
+```
+
 # Config
 
 In `build.xml`, set `targetsdk` to the version that is supported by your javacard.
