@@ -104,6 +104,7 @@ python2 ./sim-tools/shadysim/shadysim_isim.py --pcsc \
 
 - wrong KIC, KID (note to myself: double-check)
 - applets cannot be updated. you need to delete, then re-install. common error code in this case: `6985`
+- The first 5 bytes of Module AID and Instance AID must match with the first 5 bytes of the AID defined in the CAP file.
 - `shadysim_isim` requires `pyscard==1.9.9`
 
 # Uninstall
