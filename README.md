@@ -1,3 +1,13 @@
+
+>[!WARNING]
+>The issues that led to the creation of this guide are now resolved upstream.
+>- [Osmocom wiki](https://osmocom.org/projects/cellular-infrastructure/wiki/HelloSTK) has updated instructions.
+>- [Osmocom HelloSTK repository](https://gitea.osmocom.org/sim-card/hello-stk/) now uses same ant-based buildchain.
+
+This guide will not be maintained any further.
+
+---
+
 My 2021's guide to [HelloSTK](https://git.osmocom.org/sim/hello-stk/) with two changes:
 * no need for ancient Java JDKs: updated [ant-javacard](https://github.com/martinpaljak/ant-javacard) buildchain
 * works with sysmoISIM-SJA2
